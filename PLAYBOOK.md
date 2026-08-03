@@ -61,8 +61,13 @@ Standing watch items for the daily run:
 
 - **Direct-channel bot flood (from 30 Jul 2026):** Direct sessions jumped
   from ~150–500/day to 8–10k/day with near-zero revenue, sessions≈users,
-  ~1.1 pages/visit. Track its size daily; note that blended conversion rate
-  is meaningless while it lasts. If it stops, say so and stand down the item.
+  ~1.1 pages/visit. Confirmed signature (diagnosed 3 Aug): headless Chrome —
+  browser=Chrome, OS=Windows, **screen_resolution=1280x1200** (99% of the
+  junk), language=English, spread across non-UK countries via residential
+  proxies (Vietnam/Brazil/HK top the list). Measure it daily with a
+  `screen_resolution` filtered pull and report the flood's size as its own
+  line. Graham is looking at a Cloudflare fix — when the 1280x1200 count
+  collapses, say so prominently and stand down the item after a clean week.
 - **Unassigned attribution breakage (from 2 Aug 2026):** Unassigned spiked
   to 6.3k sessions AND carried most of the day's revenue (£645 of £960) —
   purchases are losing their source attribution. Until fixed, channel
