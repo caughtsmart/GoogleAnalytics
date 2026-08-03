@@ -1,0 +1,14 @@
+# Credentials — never commit these
+config.yaml
+secrets/
+*service-account*.json
+*.pem
+
+# Generated reports
+reports/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
