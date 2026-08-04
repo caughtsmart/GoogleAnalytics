@@ -68,11 +68,25 @@ Standing watch items for the daily run:
   `screen_resolution` filtered pull and report the flood's size as its own
   line. Graham is looking at a Cloudflare fix — when the 1280x1200 count
   collapses, say so prominently and stand down the item after a clean week.
-- **Unassigned attribution breakage (from 2 Aug 2026):** Unassigned spiked
-  to 6.3k sessions AND carried most of the day's revenue (£645 of £960) —
-  purchases are losing their source attribution. Until fixed, channel
-  revenue splits are unreliable. Flag daily; suggest checking consent
-  mode / UTM handling if it persists.
+- **"Unassigned" in fresh data is usually processing lag, not breakage
+  (learned 4 Aug 2026):** GA4 takes 24–48h to finish attributing a day —
+  the 07:00 pull sees yesterday partially processed, so a big
+  (not set)/(not set) bucket the morning after is normal and re-resolves
+  to real sources a day later (2 Aug's "£645 Unassigned" became Paid
+  Search/Direct/Facebook/Klaviyo overnight). Each run: re-pull the
+  PREVIOUS day's source/medium split and report the restated numbers;
+  only flag Unassigned that survives 48h.
+- **Klaviyo UTM tracking (root cause of the "email is dead" scare, found
+  4 Aug 2026):** campaigns sent 31 Jul–3 Aug had `add_tracking_params:
+  false`, so their clicks landed in GA4 as Direct — while Klaviyo's own
+  attribution showed them earning £190 + £794 + £0. GA4's Email channel
+  only ever showed the flows (which kept their UTMs). Graham is
+  re-enabling account-level UTM tracking. Daily check: pull yesterday's
+  sent campaigns via the Klaviyo connector (`get_campaigns`, filter
+  scheduled_at ≥ yesterday) and flag any with `add_tracking_params:
+  false` before it costs another day of blind data. Judge email
+  performance from Klaviyo's campaign report, not GA4, until UTMs have
+  been back on for a full week.
 - **Paid Search sessions roughly halved from 2 Aug 2026** — expected
   consequence of the Brand Search phrase negatives added by the Google Ads
   routine. Verify Paid Search *revenue* holds; only flag if it collapses too.
