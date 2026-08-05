@@ -71,10 +71,17 @@ Standing watch items for the daily run:
   11 Aug), watching for a rebound if the operator changes fingerprint.
 - **Dead-page check (added 5 Aug 2026):** each run, pull yesterday's
   `landing_page` with sessions and revenue, and look for pages taking heavy
-  traffic while producing no item-view events and £0 revenue. On 4 Aug ~700
-  sessions hit an unpublished product (ACTIVE, 17 units in stock, but
-  `publishedAt`/`onlineStoreUrl` null → 404). Verify any suspect page via
-  the Shopify connector before reporting it, and quantify the stranded stock.
+  traffic while producing no item-view events and £0 revenue. Verify any
+  suspect page via the Shopify connector before reporting it.
+  **Important context (confirmed by Graham 5 Aug): sealed Pokémon TCG is
+  deliberately NOT sold online — it is POS/in-store only, kept ACTIVE for
+  the till but unpublished from the Online Store on purpose.** So a 404 on
+  a sealed Pokémon product page is NOT a misconfiguration to fix by
+  publishing. Report it as a *demand signal*: how many people wanted it and
+  where they came from, so the link can be pointed at an in-store landing
+  page instead. Never recommend publishing sealed Pokémon online.
+  (Pokémon accessories — Funko, Ultra Pro/VaultX binders, playmats,
+  portfolios — ARE sold online and are fine to treat normally.)
 - **"Unassigned" in fresh data is usually processing lag, not breakage
   (learned 4 Aug 2026):** GA4 takes 24–48h to finish attributing a day —
   the 07:00 pull sees yesterday partially processed, so a big
