@@ -66,8 +66,15 @@ Standing watch items for the daily run:
   junk), language=English, spread across non-UK countries via residential
   proxies (Vietnam/Brazil/HK top the list). Measure it daily with a
   `screen_resolution` filtered pull and report the flood's size as its own
-  line. Graham is looking at a Cloudflare fix — when the 1280x1200 count
-  collapses, say so prominently and stand down the item after a clean week.
+  line. **Status 5 Aug: the Cloudflare fix landed — 6,484 → 722 sessions
+  overnight.** Keep reporting the daily count until a clean week (to
+  11 Aug), watching for a rebound if the operator changes fingerprint.
+- **Dead-page check (added 5 Aug 2026):** each run, pull yesterday's
+  `landing_page` with sessions and revenue, and look for pages taking heavy
+  traffic while producing no item-view events and £0 revenue. On 4 Aug ~700
+  sessions hit an unpublished product (ACTIVE, 17 units in stock, but
+  `publishedAt`/`onlineStoreUrl` null → 404). Verify any suspect page via
+  the Shopify connector before reporting it, and quantify the stranded stock.
 - **"Unassigned" in fresh data is usually processing lag, not breakage
   (learned 4 Aug 2026):** GA4 takes 24–48h to finish attributing a day —
   the 07:00 pull sees yesterday partially processed, so a big
