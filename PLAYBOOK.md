@@ -87,6 +87,14 @@ Standing watch items for the daily run:
   page instead. Never recommend publishing sealed Pokémon online.
   (Pokémon accessories — Funko, Ultra Pro/VaultX binders, playmats,
   portfolios — ARE sold online and are fine to treat normally.)
+  **Diagnosing a dead-page spike (method proven 6 Aug):** pull `date_hour`
+  for the landing page — a single-hour spike means a broadcast or a
+  publish event, spread traffic means organic sharing. Then check the
+  product's `resourcePublications` publishDate in Shopify. The 4 Aug ETB
+  spike (62 of 78 sessions in the 10:00 hour) matched a publish to
+  Point of Sale + **Microsoft Copilot** at 10:27:50 exactly — no campaign
+  was involved. Publishing a POS-only product to any non-Online-Store
+  channel can put its 404 URL into circulation.
 - **"Unassigned" in fresh data is usually processing lag, not breakage
   (learned 4 Aug 2026):** GA4 takes 24–48h to finish attributing a day —
   the 07:00 pull sees yesterday partially processed, so a big
