@@ -57,6 +57,20 @@ routine changes nothing anywhere (no GA4 config, no Shopify, no ad
 platforms). Recommendations are listed in the report with a concrete next
 step so Graham can act on them in any session.
 
+**GA4 revenue is NOT the source of truth (established 7 Aug 2026).** GA4
+captures roughly a third of Online Store revenue — 6 Aug: GA4 16 orders
+/£575.11 vs Shopify 23 web orders/£1,688.07; 22 July shows the same gap, so
+it is long-standing (consent mode, ad-blockers, iOS ITP), not a break.
+**Every run must cross-check the day's revenue against Shopify** via the
+connector (`orders`, filter `created_at` for the day, group by
+`channelInformation.channelDefinition.handle`) and report the Shopify web
+figure alongside GA4's. Never call a revenue decline from GA4 alone.
+Point of Sale, eBay and Shopify Collective orders never appear in GA4 —
+exclude them from the comparison, but note them so the day's real trading
+is visible. **Gift cards produce no GA4 purchase events at all** (6 Aug:
+£750 across 2 orders, 15 add-to-carts, zero recorded) — always check gift
+card sales in Shopify.
+
 Standing watch items for the daily run:
 
 - **Direct-channel bot flood (from 30 Jul 2026):** Direct sessions jumped
