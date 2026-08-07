@@ -61,15 +61,30 @@ step so Graham can act on them in any session.
 captures roughly a third of Online Store revenue — 6 Aug: GA4 16 orders
 /£575.11 vs Shopify 23 web orders/£1,688.07; 22 July shows the same gap, so
 it is long-standing (consent mode, ad-blockers, iOS ITP), not a break.
-**Every run must cross-check the day's revenue against Shopify** via the
-connector (`orders`, filter `created_at` for the day, group by
-`channelInformation.channelDefinition.handle`) and report the Shopify web
-figure alongside GA4's. Never call a revenue decline from GA4 alone.
-Point of Sale, eBay and Shopify Collective orders never appear in GA4 —
-exclude them from the comparison, but note them so the day's real trading
-is visible. **Gift cards produce no GA4 purchase events at all** (6 Aug:
-£750 across 2 orders, 15 add-to-carts, zero recorded) — always check gift
-card sales in Shopify.
+**Decision (Graham, 7 Aug 2026): read revenue from Shopify, and do not add
+server-side GA4 tracking.** The Shopify GA4 integration runs through the
+Google & YouTube channel's Web Pixel, which is client-side by design — this
+gap cannot be configured away, and the decision is to live with it rather
+than buy a server-side app (Elevar/Littledata/Stape). **Do not re-recommend
+server-side tracking in future reports.** Revisit only if Graham starts
+making budget decisions on GA4 channel-level ROI, and say so once, briefly.
+
+So, every run:
+- **Pull the day's orders from Shopify** (`orders`, filter `created_at` for
+  the day, take `channelInformation.channelDefinition.handle` and
+  `totalPriceSet`). **The Online Store ("web") total is THE revenue figure
+  for the report** — lead the headline with it.
+- Note Point of Sale, eBay and Shopify Collective totals separately so the
+  day's real trading is visible; these never appear in GA4 and are not part
+  of any "gap".
+- Quote GA4's revenue only as a secondary, clearly-labelled figure when it
+  is useful (e.g. channel mix), never as the headline, and never as the
+  basis for calling a revenue rise or fall.
+- Use GA4 for what it is good at: traffic volume, channel mix, landing
+  pages, product views/carts, and the bot diagnostics.
+- **Gift cards produce no GA4 purchase events at all** (6 Aug: £750 across
+  2 orders, 15 add-to-carts, zero recorded) — always take gift card sales
+  from Shopify.
 
 Standing watch items for the daily run:
 
@@ -137,10 +152,14 @@ Standing watch items for the daily run:
 Write `reports/YYYY-MM-DD.md` (named for the run date; it covers yesterday)
 containing:
 
-1. **Headline** — yesterday's visits, revenue, orders, conversion rate,
-   vs 7-day average.
+1. **Headline** — yesterday's **Shopify Online Store revenue and orders**
+   (the source of truth), the other sales channels' totals in one line, and
+   real (de-botted) visits from GA4. Compare revenue against the 7-day and
+   28-day Shopify averages, not GA4's.
 2. **Channel table** — last 30 days sessions + revenue per channel, and
-   yesterday's figure with trend arrow.
+   yesterday's figure with trend arrow. This one is GA4-sourced by
+   necessity (Shopify has no channel attribution) — label it as GA4 and
+   treat its revenue column as indicative mix, not absolute money.
 3. **Products** — top sellers yesterday + the "interest but no sales"
    callout.
 4. **Flags & recommendations** — prioritised, each with the concrete action.
