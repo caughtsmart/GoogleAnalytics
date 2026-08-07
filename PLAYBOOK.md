@@ -166,8 +166,11 @@ containing:
 5. **Actions taken** — always "none (reporting-only)".
 6. **FYI** — data quirks, cross-references, anything odd.
 
-Commit the report to the repo and push (branch
-`claude/loaded-dice-ga4-analyst-tf6wkg`, or the default branch if that has
-been merged and deleted). Post a short summary of the headline numbers and
-top recommendations in the session. Keep the report under ~60 lines — it's
-a daily brief, not an audit.
+**Commit the report straight to `main` and push** (`git pull --rebase
+origin main`, commit, `git push -u origin main`). Do not create a branch
+and do not open a pull request — this is an append-only daily log, each run
+adds one new file under `reports/` plus any playbook learnings, so there is
+nothing to review. If a push is rejected because main moved, rebase and
+push again. Post a short summary of the headline numbers and top
+recommendations in the session. Keep the report under ~60 lines — it's a
+daily brief, not an audit.
