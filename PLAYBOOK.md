@@ -73,7 +73,16 @@ So, every run:
 - **Pull the day's orders from Shopify** (`orders`, filter `created_at` for
   the day, take `channelInformation.channelDefinition.handle` and
   `totalPriceSet`). **The Online Store ("web") total is THE revenue figure
-  for the report** — lead the headline with it.
+  for the report** — lead the headline with it. Channels seen so far: web,
+  pos, ebay, shopify-collective-automatic-payments, tiktok.
+- **Baselines come from ShopifyQL** — `FROM sales SHOW gross_sales, orders
+  TIMESERIES day SINCE -29d UNTIL yesterday`. Use **`gross_sales`, not
+  `total_sales`**: total_sales nets off refunds and produces wildly
+  negative days when a pre-order cancellation batch lands (29 Jul 2026 was
+  −£8,220), which destroys the averages. ShopifyQL has **no channel
+  dimension** on this store (`sales_channel_name`, `api_client_name` and
+  `channel_name` all error), so the series is all-channel — label it as
+  such and take the per-channel split from the orders query above.
 - Note Point of Sale, eBay and Shopify Collective totals separately so the
   day's real trading is visible; these never appear in GA4 and are not part
   of any "gap".
