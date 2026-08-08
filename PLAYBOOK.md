@@ -95,6 +95,39 @@ So, every run:
   2 orders, 15 add-to-carts, zero recorded) — always take gift card sales
   from Shopify.
 
+## TCG is being wound down (confirmed by Graham, 8 Aug 2026)
+
+Sealed TCG is being **gradually removed from the website** — it drives hype
+spikes, bot traffic and scalper interest that swamp the rest of the numbers.
+Treat this as deliberate business strategy, not a problem to solve:
+
+- **A TCG revenue decline is expected and on-plan. Never flag it as a
+  concern.** Report it as wind-down progress.
+- **Split every revenue trend into TCG and non-TCG**, and base the "how is
+  the business doing" read on **non-TCG**, which is the continuing business.
+  Report TCG separately as a shrinking line.
+- **TCG launch days cause traffic spikes and bot surges.** When a traffic
+  anomaly coincides with a TCG release, say so and do not raise it as an
+  alarm. The 4 Aug Pokémon ETB spike and the general bot interest in this
+  store are TCG-driven.
+- Sealed Pokémon is already POS-only (see the dead-page note below); other
+  TCG lines are following gradually.
+
+**Classification is unreliable — `product_type` tagging is incomplete.**
+As of 8 Aug the "Trading Cards" product_type held £29,272 of 28-day gross
+sales, but the **untagged** (empty product_type) bucket held another
+£20,974 that is mostly TCG — One Piece EB-06 £9,099, One Piece OP-18
+£6,188, Lorcana Hyperia case £1,400. Real TCG is therefore **~49% of gross
+sales**, not the 31% the tag implies. ShopifyQL cannot filter on an empty
+product_type (`WHERE product_type = ''` returns nothing), so classify by
+**product title** as well: treat a line as TCG if product_type is
+`Trading Cards`, `Trading Card Games` or `Card Game`, **or** the title
+contains any of: Pokemon/Pokémon, One Piece, Magic The Gathering, MTG,
+Lorcana, Yu-Gi-Oh, Final Fantasy TCG, Star Wars Unlimited, Gundam Card
+Game, Digimon, Flesh and Blood, Union Arena, Riftbound, Naruto, Booster
+Box, Booster Pack, Elite Trainer Box, ETB. State in the report that the
+split is approximate until tagging is fixed.
+
 Standing watch items for the daily run:
 
 - **Direct-channel bot flood (from 30 Jul 2026):** Direct sessions jumped
