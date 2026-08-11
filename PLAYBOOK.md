@@ -85,7 +85,14 @@ So, every run:
   such and take the per-channel split from the orders query above.
 - Note Point of Sale, eBay and Shopify Collective totals separately so the
   day's real trading is visible; these never appear in GA4 and are not part
-  of any "gap".
+  of any "gap". **The shop is closed Mondays — zero POS orders on a Monday
+  is normal** (verified 3 and 10 Aug 2026), so never flag it, and expect
+  Monday all-channel totals to look light against other weekdays.
+- **Judge Klaviyo campaigns at 48–72 hours, not the next morning.**
+  Attributed revenue fills in substantially after the first day: the 9 Aug
+  Summer Sale email went from £348.85/10 orders to £617.12/14 (+77%)
+  overnight, and its SMS from zero to £99.33. A weak next-day conversion
+  figure is not evidence a send failed.
 - Quote GA4's revenue only as a secondary, clearly-labelled figure when it
   is useful (e.g. channel mix), never as the headline, and never as the
   basis for calling a revenue rise or fall.
