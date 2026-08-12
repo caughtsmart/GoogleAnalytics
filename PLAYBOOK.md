@@ -135,6 +135,33 @@ Game, Digimon, Flesh and Blood, Union Arena, Riftbound, Naruto, Booster
 Box, Booster Pack, Elite Trainer Box, ETB. State in the report that the
 split is approximate until tagging is fixed.
 
+## Organic search (baselined 12 Aug 2026)
+
+Use the **Windsor `searchconsole` connector** (site `sc-domain:loadeddice.uk`)
+for organic questions — GA4 only says "Organic Search", Search Console gives
+queries, pages and position. **It lags ~2 days**, so a GA4 organic spike
+cannot be confirmed there until two days later; check GA4 landing pages
+first for same-day answers. Ignore its `branded_vs_nonbranded` field — it
+matches the domain string, so "loaded dice" (with a space) is misfiled as
+non-branded; classify brand terms by hand.
+
+Baseline (29 Jul–9 Aug: 1,375 clicks, 129k impressions, CTR 1.07%,
+avg position ~8–10). Organic rests on two pillars:
+- **Disney Lorcana pages ≈ 573 clicks (42%)** — pre-orders collection 227,
+  Attack of the Vine 221, Lorcana TCG 75, Wilds Unknown 50
+- **Blog content ≈ 563 clicks (41%)** — Wicked and the Warped 240, Best
+  TCGs 2026 guide 81, Necromunda new edition 58, 40K 11th Ed starter sets
+  48, 40K faction quiz 48, Warriors of Chaos pre-orders 45, Aeldari
+  Exodites 43
+- Brand terms ~209 clicks ("loaded dice" 156, "loaded dice barry" 53);
+  `/pages/visit-us` ranks 2.4 for local intent
+
+**Wind-down risk to flag when relevant:** roughly 42% of organic clicks land
+on Lorcana pages, plus One Piece decks and the TCG guide. As TCG leaves the
+site those pages lose their reason to exist, and organic will fall with
+them unless redirects and replacement content are planned. This is a
+consequence of the TCG decision, not an argument against it.
+
 Standing watch items for the daily run:
 
 - **Direct-channel bot flood (from 30 Jul 2026):** Direct sessions jumped
