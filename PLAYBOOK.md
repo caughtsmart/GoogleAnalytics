@@ -171,14 +171,18 @@ Standing watch items for the daily run:
   junk), language=English, spread across non-UK countries via residential
   proxies (Vietnam/Brazil/HK top the list). Measure it daily with a
   `screen_resolution` filtered pull and report the flood's size as its own
-  line. **Status 6 Aug: the Cloudflare fix worked for exactly one day
-  (6,484 → 739 on 4 Aug) then was evaded — 4,112 on 5 Aug.** The
-  fingerprint did NOT change; the *geography* did, from Vietnam/Brazil/
-  Bangladesh to US/Singapore/Hong Kong/Japan/Germany, with UK IPs appearing
-  for the first time. So also pull the **country split of the 1280x1200
-  traffic** each run, not just the total — a shifting country mix is the
-  tell that a geo-based rule is being routed around. Keep reporting until a
-  genuinely clean week.
+  line. Mid-run history: a Cloudflare fix cut it to 739 on 4 Aug but was
+  evaded within a day (back to 4,112 on 5 Aug, peaking 6,780 on 8 Aug) by
+  rotating geography — the fingerprint never changed, but the country mix
+  moved from Vietnam/Brazil/Bangladesh to US/Singapore/Hong Kong/Japan and
+  grew a UK foothold. So when it is running, pull the **country split**,
+  not just the total: a shifting mix means a geo-based rule is being routed
+  around.
+  **Status 13 Aug: effectively over.** Three consecutive falls —
+  2,351 (10 Aug) → 738 (11 Aug) → 467 (12 Aug), 95% below the 10,046 peak.
+  **Downgrade to a weekly sanity check** rather than a daily headline
+  section. Re-open it as a daily item only if the count goes back above
+  ~1,500/day.
 - **Dead-page check (added 5 Aug 2026):** each run, pull yesterday's
   `landing_page` with sessions and revenue, and look for pages taking heavy
   traffic while producing no item-view events and £0 revenue. Verify any
