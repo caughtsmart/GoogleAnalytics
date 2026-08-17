@@ -178,11 +178,14 @@ Standing watch items for the daily run:
   grew a UK foothold. So when it is running, pull the **country split**,
   not just the total: a shifting mix means a geo-based rule is being routed
   around.
-  **Status 13 Aug: effectively over.** Three consecutive falls —
-  2,351 (10 Aug) → 738 (11 Aug) → 467 (12 Aug), 95% below the 10,046 peak.
-  **Downgrade to a weekly sanity check** rather than a daily headline
-  section. Re-open it as a daily item only if the count goes back above
-  ~1,500/day.
+  History: fell to 467 by 12 Aug (95% below the 10,046 peak) and was
+  downgraded to a weekly check on 13 Aug.
+  **Status 17 Aug: RE-OPENED as a daily item.** It climbed back four days
+  running — 274 (13 Aug) → 436 → 749 → **1,487 (16 Aug)** — hitting the
+  1,500/day threshold, on the same fingerprint and the same country spread
+  (US/HK/Brazil/Singapore/Germany, UK ~45). Report the daily count and
+  country mix again until it falls below ~500/day for three consecutive
+  days.
 - **Dead-page check (added 5 Aug 2026):** each run, pull yesterday's
   `landing_page` with sessions and revenue, and look for pages taking heavy
   traffic while producing no item-view events and £0 revenue. Verify any
