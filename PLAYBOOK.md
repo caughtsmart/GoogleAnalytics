@@ -115,6 +115,38 @@ So, every run:
   2 orders, 15 add-to-carts, zero recorded) — always take gift card sales
   from Shopify.
 
+## Seasonality and basket size (Graham, 19 Aug 2026)
+
+**Business context from Graham:** basket sizes tend to shrink as the month
+end approaches, and the time of year matters — the end of the summer
+holidays, with people going back to work and school, is a soft period.
+**Do not flag a soft late-August basket as a funnel problem or a new
+trend.** Note it and move on.
+
+**What the data actually shows** (measured 19 Aug 2026 over Apr–Aug, GA4
+web-only AOV — GA4 under-reports volume but the ratio is usable for shape):
+
+- **The end-of-summer / month-level slowdown is real and clearly visible.**
+  Monthly web AOV: Apr £56.34 · May £54.11 · Jun £63.38 · Jul £76.78 ·
+  **Aug £47.71**. Weekly it steps down through August: w/c 20 Jul £79.06 →
+  27 Jul £48.34 → 3 Aug £42.34 → 10 Aug £59.15. Purchase volume falls too
+  (Jun 1,199 → Jul 857). Treat August softness as expected, and compare
+  against the same period last year rather than against July.
+- **The within-month "shrinks toward month end" pattern is NOT in the
+  data — it runs the other way.** Web AOV in the last third of the month
+  vs the first ten days: Apr **+36%**, May **+34%**, Jun **+32%**, Jul
+  **+2%**. The weakest baskets are consistently in the **first ten days**
+  of the month, not the last. All-channel ShopifyQL is mixed (−34% to
+  +37%) because POS and event days swamp it, so it neither confirms nor
+  contradicts.
+- **Consequence for the report:** never explain a soft day by saying it is
+  month end — that is not supported. Do use the seasonal read for August
+  and the school-holiday period. If a soft basket lands in days 1–10, that
+  is the normal weak window, so say so rather than flagging it.
+
+Revisit this measurement in October, once the autumn/pre-Christmas run-up
+is underway and August is out of the trailing window.
+
 ## TCG is being wound down (confirmed by Graham, 8 Aug 2026)
 
 Sealed TCG is being **gradually removed from the website** — it drives hype
