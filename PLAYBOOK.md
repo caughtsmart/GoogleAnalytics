@@ -83,6 +83,19 @@ So, every run:
   dimension** on this store (`sales_channel_name`, `api_client_name` and
   `channel_name` all error), so the series is all-channel — label it as
   such and take the per-channel split from the orders query above.
+- **Exclude exchange/swap lines from the analysis (Graham, 19 Aug 2026).**
+  When ShopifyQL shows a product line with revenue but **`orders: 0`**, and
+  no order in the day's window contains that item, it is an **exchange**:
+  a customer swapped a product and paid the difference. Shopify books the
+  full new-item value into the sales report without creating a normal order
+  record, so it inflates gross sales by the whole item price rather than the
+  cash actually taken. **These are not new sales — strip them out before
+  quoting gross sales, day-on-day changes or TCG share, and note the amount
+  excluded in the FYI section rather than flagging it as a mystery.**
+  Worked example (18 Aug 2026): two *Pokémon 30th Ultra Premium Collection*
+  lines, £1,604.02 and £583.28, both `orders: 0` — ShopifyQL read £3,842
+  gross and TCG at 64%; net of the exchanges the day was ~£1,655 and TCG 7%.
+  The orders API total (70 orders, £2,023.24) was the honest figure.
 - Note Point of Sale, eBay and Shopify Collective totals separately so the
   day's real trading is visible; these never appear in GA4 and are not part
   of any "gap". **The shop is closed Mondays — zero POS orders on a Monday
